@@ -1,0 +1,92 @@
+<!-- 文件：index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuckClovers</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <!-- 大白话注释：引入 marked.js 来解析 Markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="hamburger-menu">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div class="left-sidebar">
+    <div class="logo">
+      <span>LuckClovers</span>
+    </div>
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="搜索助手...">
+      <span>Ctrl K</span>
+    </div>
+    <div class="nav-icons">
+      <i class="fas fa-comment active" id="chatIcon" title="聊天"></i>
+      <i class="fas fa-cog" id="settingsIcon" title="设置"></i>
+      <i class="fas fa-paint-brush" id="imageGenIcon" title="图像生成"></i> <!-- 新增：画板图标 -->
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="header">
+      <h1>早上好 <span>👍</span></h1>
+      <p>很高兴您选择LuckClovers，请问现在能帮您做什么？</p>
+      <div class="model-selector">
+        <i class="fas fa-robot"></i>
+        <select id="modelSelector">
+          <option value="">选择模型</option>
+        </select>
+      </div>
+    </div>
+    <!-- 大白话注释：聊天区域，用 Markdown 渲染消息 -->
+    <div class="chat-area" id="chatArea"></div>
+    <div class="input-area">
+      <input type="text" placeholder="Enter | 波波 / Ctrl Enter 键送">
+      <button class="send"><i class="fas fa-arrow-up"></i> 发送</button>
+    </div>
+    <div class="settings-panel" id="settingsPanel" style="display: none;">
+      <h2><i class="fas fa-tools"></i> 设置</h2>
+      <h3>模型类别</h3>
+      <div id="categoryList" class="category-list"></div>
+    </div>
+  </div>
+</div>
+<!-- 大白话注释：添加一个弹窗，页面加载时显示 -->
+<div class="modal" id="welcomeModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2><i class="fas fa-info-circle"></i> 欢迎使用 LuckClovers</h2>
+      <button class="close-btn" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-image">
+
+        <img src="images/WEIX.jpg" alt="微信">
+
+        <img src="images/QQ群.jpg" alt="qq群">
+      </div>
+      <div class="modal-text">
+        <p><strong>关于LuckClovers</strong></p>
+        <p>欢迎来到 LuckClovers！没什么灵感做前端，暂时先做了百炼上架了，后面在对接其他热门的，前端大佬出点注意</p>
+        <p><strong>联系方式</strong></p>
+        <p>QQ：598368053</p>
+        <p>微信：15127988973</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/script.js"></script>
+<script>
+  // 大白话注释：页面加载完后自动高亮所有代码块
+  document.addEventListener('DOMContentLoaded', (event) => {
+    hljs.highlightAll();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!-- 文件：bailian.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>百炼大模型 - LuckClovers</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/bailian.css">
+</head>
+<body>
+<div class="container">
+  <div class="hamburger-menu">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div class="left-sidebar">
+    <div class="logo">
+      <span>LuckClovers</span>
+    </div>
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="搜索助手...">
+      <span>Ctrl K</span>
+    </div>
+    <div class="nav-icons">
+      <i class="fas fa-arrow-left" id="backIcon" title="返回"></i>
+      <i class="fas fa-robot active" id="modelIcon" title="模型管理"></i>
+    </div>
+  </div>
+  <div class="main-content" style="display: block !important; min-height: 100vh; overflow-y: auto;">
+    <div class="header">
+      <h1>百炼大模型</h1>
+      <p>管理您的百炼大模型</p>
+    </div>
+    <!-- 大白话注释：模型管理区域 -->
+    <div class="model-management" id="modelManagement">
+      <h2><i class="fas fa-list"></i> 模型列表</h2>
+      <button id="addModelBtn" class="add-model-btn"><i class="fas fa-plus"></i> 添加模型</button>
+      <div id="modelList" class="model-list"></div>
+      <div id="modelConfig" class="model-config" style="display: none;">
+        <h3><i class="fas fa-cogs"></i> 模型配置</h3>
+        <div class="config-item">
+          <label><i class="fas fa-signature"></i> 模型名称</label>
+          <input type="text" id="modelName" placeholder="输入模型名称">
+        </div>
+        <div class="config-item">
+          <label><i class="fas fa-link"></i> API地址</label>
+          <input type="text" id="apiUrl" placeholder="输入API地址">
+        </div>
+        <div class="config-item">
+          <label><i class="fas fa-key"></i> API密钥</label>
+          <input type="text" id="apiKey" placeholder="输入API密钥">
+        </div>
+        <div class="config-item">
+          <label><i class="fas fa-user"></i> 模型昵称</label>
+          <input type="text" id="nickName" placeholder="输入模型昵称">
+        </div>
+        <div class="config-item">
+          <label><i class="fas fa-personality"></i> 性格定义</label>
+          <textarea id="personality" placeholder="输入模型性格描述"></textarea>
+        </div>
+        <!-- 大白话注释：新增一个拖拽框放知识库文件 -->
+        <div class="config-item">
+          <label><i class="fas fa-book"></i> 知识库文件</label>
+          <div id="knowledgeDropZone" class="drop-zone">
+            <p>拖拽文件到这里或点击上传知识库文件（可选）</p>
+            <input type="file" id="knowledgeFile" style="display: none;">
+            <div id="fileName" class="file-name"></div>
+          </div>
+        </div>
+        <div class="config-buttons">
+          <button onclick="saveModelConfig()" class="save-btn"><i class="fas fa-save"></i> 保存</button>
+          <button onclick="closeModelConfig()" class="close-btn"><i class="fas fa-times"></i> 关闭</button>
+        </div>
+      </div>
+    </div>
+    <!-- 大白话注释：图片生成模型管理区域，和模型管理区域并列 -->
+    <div class="image-model-management" id="imageModelManagement">
+      <h2><i class="fas fa-image"></i> 图片生成模型列表</h2>
+      <button id="addImageModelBtn" class="add-model-btn"><i class="fas fa-plus"></i> 添加图片模型</button>
+      <div id="imageModelList" class="model-list"></div>
+      <!-- 大白话注释：图片模型的配置表单 -->
+      <div id="imageModelConfig" class="model-config" style="display: none;">
+        <h3><i class="fas fa-cogs"></i> 图片模型配置</h3>
+        <div class="config-item">
+          <label><i class="fas fa-signature"></i> 模型名称</label>
+          <input type="text" id="imageModelName" placeholder="输入图片模型名称">
+        </div>
+        <div class="config-item">
+          <label><i class="fas fa-link"></i> API地址</label>
+          <input type="text" id="imageApiUrl" placeholder="输入API地址">
+        </div>
+        <div class="config-item">
+          <label><i class="fas fa-key"></i> API密钥</label>
+          <input type="text" id="imageApiKey" placeholder="输入API密钥">
+        </div>
+        <div class="config-item">
+          <label><i class="fas fa-user"></i> 模型昵称</label>
+          <input type="text" id="imageNickName" placeholder="输入模型昵称">
+        </div>
+        <!-- 大白话注释：图文理解的配置参数 -->
+        <div class="config-item">
+          <label><i class="fas fa-image"></i> 图文生成配置</label>
+          <div class="text2image-config">
+            <div class="config-subitem">
+              <label>反向提示词（可选）</label>
+              <textarea id="negativePrompt" placeholder="输入反向提示词，比如：低质量、模糊"></textarea>
+            </div>
+            <div class="config-subitem">
+              <label>图像分辨率（可选）</label>
+              <input type="text" id="imageSize" placeholder="默认1024*1024，格式如：768*1024">
+            </div>
+            <div class="config-subitem">
+              <label>生成数量（可选）</label>
+              <input type="number" id="imageCount" min="1" max="4" placeholder="默认4，范围1-4">
+            </div>
+            <div class="config-subitem">
+              <label>随机种子（可选）</label>
+              <input type="number" id="seed" min="0" max="2147483647" placeholder="默认随机，范围0-2147483647">
+            </div>
+            <div class="config-subitem">
+              <label>智能改写提示词</label>
+              <input type="checkbox" id="promptExtend" checked>
+            </div>
+            <div class="config-subitem">
+              <label>添加水印</label>
+              <input type="checkbox" id="watermark">
+            </div>
+          </div>
+        </div>
+        <div class="config-buttons">
+          <button onclick="saveImageModelConfig()" class="save-btn"><i class="fas fa-save"></i> 保存</button>
+          <button onclick="closeImageModelConfig()" class="close-btn"><i class="fas fa-times"></i> 关闭</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/bailian.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'929f2a86295bb034',t:'MTc0MzU4NDc0My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>

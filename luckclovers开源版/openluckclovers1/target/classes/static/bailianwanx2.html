@@ -1,0 +1,56 @@
+<!-- 文件：bailianwanx2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图像生成 - LuckClovers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/bailianwanx2.css"> <!-- 新增：专属样式文件 -->
+</head>
+<body>
+<div class="container">
+    <div class="hamburger-menu">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="left-sidebar">
+        <div class="logo">
+            <span>LuckClovers</span>
+        </div>
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="搜索助手...">
+            <span>Ctrl K</span>
+        </div>
+        <div class="nav-icons">
+            <i class="fas fa-comment" id="chatIcon" title="聊天"></i>
+            <i class="fas fa-cog" id="settingsIcon" title="设置"></i>
+            <i class="fas fa-paint-brush" id="imageGenIcon" title="图像生成" class="active"></i> <!-- 新增：画板图标 -->
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="header">
+            <h1>图像生成 <span>🎨</span></h1>
+            <p>输入提示词，生成属于你的艺术作品！</p>
+            <div class="model-selector">
+                <i class="fas fa-robot"></i>
+                <select id="modelSelector">
+                    <option value="">选择图片模型</option>
+                </select>
+            </div>
+        </div>
+        <!-- 大白话注释：图像生成区域 -->
+        <div class="image-gen-area" id="imageGenArea"></div>
+        <div class="input-area">
+            <!-- 大白话注释：正向提示词输入框 -->
+            <input type="text" id="promptInput" placeholder="输入正向提示词，例如：雪地，小教堂，极光">
+            <!-- 大白话注释：反向提示词输入框 -->
+            <textarea id="negativePromptInput" placeholder="输入反向提示词（可选），例如：人物，低质量" rows="2"></textarea>
+            <button class="generate-btn"><i class="fas fa-arrow-up"></i> 生成</button>
+        </div>
+    </div>
+</div>
+<script src="/bailianwanx2.js"></script> <!-- 新增：专属 JS 文件 -->
+</body>
+</html>

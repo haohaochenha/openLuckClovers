@@ -1,0 +1,98 @@
+/* 文件：bailianwanx2.css */
+.image-gen-area {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #fafafa;
+}
+
+.image-message {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.image-message.user-prompt p::before {
+    content: "提示词：";
+    font-weight: bold;
+    color: #800080;
+}
+
+.image-message.bot-image p::before {
+    content: "生成结果：";
+    font-weight: bold;
+    color: #555;
+}
+
+.image-message img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.input-area {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-top: 1px solid #e0e0e0;
+    gap: 10px;
+}
+
+.input-area #promptInput {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: #ffffff;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.input-area #promptInput:focus {
+    box-shadow: 0 0 5px rgba(128, 0, 128, 0.2);
+}
+
+.input-area #negativePromptInput {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #ffffff;
+    border-radius: 10px;
+    font-size: 14px;
+    resize: vertical;
+    transition: all 0.3s;
+}
+
+.input-area #negativePromptInput:focus {
+    box-shadow: 0 0 5px rgba(128, 0, 128, 0.2);
+}
+
+.generate-btn {
+    background-color: #800080;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.generate-btn:hover {
+    background-color: #600060;
+}
+
+@media (max-width: 768px) {
+    .input-area {
+        position: sticky;
+        bottom: 0;
+        background-color: #ffffff;
+        padding: 10px;
+    }
+}

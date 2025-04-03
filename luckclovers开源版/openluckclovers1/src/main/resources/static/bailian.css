@@ -1,0 +1,332 @@
+/* 文件：bailian.css */
+.model-management {
+    padding: 30px;
+    flex: 1;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.model-management h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-model-btn {
+    background: linear-gradient(135deg, #800080, #600060);
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-model-btn:hover {
+    background: linear-gradient(135deg, #600060, #800080);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.model-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.model-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.model-item:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.model-item span {
+    flex: 1;
+    font-size: 16px;
+    color: #333;
+}
+
+.model-item .edit-btn, .model-item .delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.model-item .edit-btn {
+    color: #800080;
+}
+
+.model-item .edit-btn:hover {
+    color: #600060;
+}
+
+.model-item .delete-btn {
+    color: #ff4444;
+}
+
+.model-item .delete-btn:hover {
+    color: #cc0000;
+}
+
+.model-config {
+    margin-top: 30px;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.model-config h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.config-item {
+    margin-bottom: 20px;
+}
+
+.config-item label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.config-item input, .config-item textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.config-item input:focus, .config-item textarea:focus {
+    border-color: #800080;
+    box-shadow: 0 0 5px rgba(128, 0, 128, 0.2);
+}
+
+.config-item textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.config-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.save-btn, .close-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.save-btn {
+    background: linear-gradient(135deg, #800080, #600060);
+    color: #ffffff;
+}
+
+.save-btn:hover {
+    background: linear-gradient(135deg, #600060, #800080);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.close-btn {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.close-btn:hover {
+    background-color: #d0d0d0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.drop-zone {
+    width: 100%;
+    min-height: 150px;
+    border: 2px dashed #800080;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.drop-zone.dragover {
+    background-color: #f0e6f0;
+    border-color: #600060;
+    box-shadow: 0 0 10px rgba(128, 0, 128, 0.2);
+}
+
+.drop-zone p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+}
+
+.file-name {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+    word-break: break-all;
+}
+
+
+/* 大白话注释：图片生成模型列表的样式，和模型管理区域保持一致 */
+.image-model-management {
+    padding: 30px;
+    flex: 1;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.image-model-management h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 大白话注释：图文生成配置的样式 */
+.text2image-config {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.config-subitem {
+    margin-bottom: 15px;
+}
+
+.config-subitem label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.config-subitem input[type="text"],
+.config-subitem input[type="number"],
+.config-subitem textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.config-subitem input[type="text"]:focus,
+.config-subitem input[type="number"]:focus,
+.config-subitem textarea:focus {
+    border-color: #800080;
+    box-shadow: 0 0 5px rgba(128, 0, 128, 0.2);
+}
+
+.config-subitem textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+.config-subitem input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* 大白话注释：确保模型管理区域和图片模型管理区域可见 */
+.main-content {
+    display: block !important;
+    min-height: 100vh; /* 确保有足够的高度显示内容 */
+    overflow-y: auto; /* 允许滚动 */
+}
+
+.model-management, .image-model-management {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* 大白话注释：当模型列表为空时，显示提示文字，而不是小猫图案 */
+.model-list:empty::before {
+    content: "暂无模型";
+    display: block;
+    text-align: center;
+    color: #999;
+    font-size: 16px;
+    padding: 20px;
+}
+
+/* 大白话注释：确保图片模型配置页面显示时可见 */
+#imageModelConfig {
+    display: none; /* 默认隐藏 */
+    position: relative; /* 确保不会被父元素裁剪 */
+    z-index: 10; /* 提高层级，防止被其他元素覆盖 */
+    background-color: #ffffff; /* 确保背景可见 */
+    padding: 20px; /* 增加内边距，防止内容贴边 */
+}
+
+/* 大白话注释：当 imageModelConfig 显示时，强制可见 */
+#imageModelConfig[style*="display: block"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-height: 300px; /* 确保有足够的高度显示内容 */
+}
+/* 大白话注释：确保图片模型管理区域不会裁剪配置页面 */
+.image-model-management {
+    min-height: 400px; /* 增加最小高度，防止内容被裁剪 */
+    position: relative; /* 确保子元素定位正常 */
+}
